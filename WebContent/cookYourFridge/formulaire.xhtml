@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+
+</head>
+<body>
+	<h:form>
+		<fieldset>
+			<table>
+				<tr>
+					<td>Inscription</td>
+				</tr>
+				<tr>
+
+					<td><h:outputLabel for="lastname">last name <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputText id="lastname"
+							value="#{userSubmissionModelBean.lastname}" required="true"
+							size="20" maxlength="60">
+							<f:validator validatorId="lastnameValidator" />
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="surname">surname <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputText id="surname"
+							value="#{userSubmissionModelBean.surname}" required="true"
+							size="20" maxlength="60">
+							<f:validator validatorId="surnameValidator" />
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="age">age <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputText id="age"
+							value="#{userSubmissionModelBean.age}" required="true" size="20"
+							maxlength="60">
+							<f:validator validatorId="agevalidator" />
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="login">login <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputText id="login"
+							value="#{userSubmissionModelBean.login}" required="true"
+							size="20" maxlength="60">
+							<f:validator validatorId="loginvalidator" />
+						</h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="pwd1">password <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputSecret id="pwd1"
+							validator="#{passwordValidatorBean.validateField}"
+							required="true">
+						</h:inputSecret></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="pwd2">Re-enter password <span
+								class="requis"></span>
+						</h:outputLabel></td>
+					<td><h:inputSecret id="pwd2"
+							validator="#{passwordValidatorBean.validateField}"
+							required="true" value="#{userSubmissionModelBean.pwd}">
+						</h:inputSecret></td>
+				</tr>
+				<td><h:messages globalOnly="true" infoClass="info" /></td>
+				<tr>
+					<td><h:commandButton value="Inscription"
+							action="#{userControlerBean.checkAndAddUser(userSubmissionModelBean)}"
+							styleClass="sansLabel" /></td>
+				</tr>
+			</table>
+		</fieldset>
+	</h:form>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<ui:composition
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+   	 xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" 
+    template="action.xhtml">
+    
+    <ui:define name="content">
+<a href="action.jsf"><button id="backtomenu">back to menu</button></a>
+
+
+
+<h2>RECIPES</h2>
+<h:form>
+		<fieldset>
+			<table>
+				<tr>
+					<td><h3>Tell what do you want !</h3></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="Preparation Duration">Preparation Duration <span class="requis"></span>
+						</h:outputLabel></td>
+					<td><p:spinner min="5" max="100" stepFactor="5" value="#{recipeListModelBean.dureeprepa}"/></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="Cookexpertise">Cook expertise <span class="requis"></span></h:outputLabel></td>
+					<td><p:rating stars="5" value="#{recipeListModelBean.star}"/></td>
+				</tr>
+				<tr>	
+					<td><h:outputLabel for="hmpeople">For how many people <span class="requis"></span></h:outputLabel></td>
+					<td><p:inputText id="hmpeople" value="#{recipeListModelBean.hmpeople}" required="true" size="20" maxlength="60"></p:inputText>
+						<p:slider minValue="1" maxValue="10" for="hmpeople" id="recipe_slider" styleClass="width-100"/>
+						</td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="Cooktype">cook type<span class="requis"></span></h:outputLabel></td>
+					<td><p:selectOneListbox id="Cooktype" value="#{recipeListModelBean.type}">
+				            <f:selectItem itemLabel="Entrée" itemValue="Entree" />
+				            <f:selectItem itemLabel="Plat" itemValue="Plat" />
+				            <f:selectItem itemLabel="Dessert" itemValue="Dessert" />
+      					</p:selectOneListbox></td>
+				</tr>
+				<tr>
+					<td><h:commandButton value="Teach me" action="#{recipeListModelBean.Display_recipes}" styleClass="sansLabel" /></td>
+				</tr>
+			</table>
+		</fieldset>
+	</h:form>
+
+</ui:define>
+</ui:composition>

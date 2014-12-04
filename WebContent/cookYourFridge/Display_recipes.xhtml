@@ -1,0 +1,41 @@
+<ui:composition
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+   	 xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" 
+    template="action.xhtml">
+    
+    <ui:define name="content">
+
+	<h1>Recipe list </h1>
+
+	<h:form>
+	
+		<p:dataGrid var="recipeModel" value="#{recipeListModelBean.recipeList}" columns="2" layout="grid"
+	        rows="4" paginator="true" id="recipe"
+	        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+	        <a href="display_recipe_detail.jsf?id=#{recipeModel.id}">
+				<p:panel header="#{recipeModel.title}" style="text-align:center">
+      			<p:panelGrid columns="2" styleClass="grid-no-border">
+      				<p:panelGrid columnClasses="column1,column2" columns="2" styleClass="grid-no-border">
+    					<h:outputText value="#{recipeModel.type}"/>
+	                   	<h:outputText value="#{recipeModel.duration} minutes" />
+	                	<h:outputText value="#{recipeModel.nbpeople} persons" />
+	                	<p:rating value="#{recipeModel.expertise}" stars="5" readonly="true"/>
+	              
+                	</p:panelGrid>
+                	<p:panelGrid columns="1" styleClass="grid-no-border">
+                		<h:outputText value="#{recipeModel.description}" />
+                	</p:panelGrid>
+                </p:panelGrid>
+                </p:panel>
+                
+   </a>
+		</p:dataGrid>
+	</h:form>
+	<a href= "recipes.jsf">Back to recipes </a>
+</ui:define>
+</ui:composition>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+<link href="css/action.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<header>
+
+ 
+<ui:insert name="choix">
+<h1>Choix de l'activité</h1>
+
+</ui:insert> 
+
+ <ui:include src="header.xhtml" />
+ 
+ 
+</header>
+
+    <h:body>
+    
+
+<ui:insert name="content">
+
+
+
+<a href="emergency.jsf"><button>emergency</button></a>
+
+<a href="recipes.jsf"><button>recipes</button></a>
+
+<a href="shop.jsf"><button>shop</button></a>
+
+</ui:insert>
+    </h:body>
+    
+    <footer>
+    
+    <ui:include src="footer.xhtml" />
+    
+    </footer>
+
+</html>

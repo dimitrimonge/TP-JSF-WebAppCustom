@@ -1,0 +1,24 @@
+<!--  if user not logged -->
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<div id="utilisateur">
+		<ui:fragment rendered="#{loggedUser.login != null}">
+			<ui:decorate template="header_login.xhtml">
+			</ui:decorate>
+		</ui:fragment>
+
+		<ui:fragment rendered="#{loggedUser.login == null}">
+			<ui:decorate template="header_logout.xhtml">
+			</ui:decorate>
+		</ui:fragment>
+	</div>
+
+</ui:composition>
+
+
+
+<!-- //if user logged -->
