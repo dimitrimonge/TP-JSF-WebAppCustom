@@ -7,10 +7,9 @@
 </head>
 <h:body>
 	<div id="utilisateur">
-		<td> Hello <h:outputText value="#{loggedUser.login}" /></td>
+		  <h:outputText value="Hello #{loggedUser.login}" />
 		<h:form>
-			<td><h:commandButton value="deconnexion"
-					action="#{userControlerBean.deconnexion()}" /></td>
+			<td><h:commandButton value="deconnexion" action="#{userControlerBean.deconnexion}" /></td>
 		</h:form>
 	</div>
 

@@ -27,18 +27,25 @@
                 </p:panelGrid>
 		</c:if>
 	</c:forEach>
-	<table>
-			<tr>
-						<td><h:outputLabel for="Comment">Comment:<span class="requis"></span>
-						</h:outputLabel></td>
-						<td><h:inputText id="lastname" required="true" size="30" maxlength="30">
-						</h:inputText></td>
-			</tr>
-			<tr>
-						<td><a href= "recipes.jsf">Back to recipes </a></td>
-			</tr>
+
+			<c:if test="#{loggedUser.login != null}">
+			<table>
+				<tr>
+					<td><h:outputLabel for="Comment">Comment:<span class="requis"></span></h:outputLabel></td>
+					<td><h:inputText id="lastname" required="true" size="30" maxlength="30"></h:inputText></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel for="userexpertise">your expertise <span class="requis"></span></h:outputLabel></td>
+					<td><p:rating stars="5"/></td>
+				</tr>
+				<tr>
+					<td><a href="display_recipe_detail.jsf?id=#{param.id}">submit</a></td>
+				</tr>
+			</table>
+			</c:if>
+				
+						<a href= "recipes.jsf">Back to recipes </a>
 	
-	</table>
 	
 </ui:define>
 </ui:composition>
